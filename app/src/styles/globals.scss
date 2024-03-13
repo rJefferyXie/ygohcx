@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-size: 14px;
+  font-family: Verdana, sans-serif;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+}
+
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     background-color: black;
+//     color: white;
+//   }
+// }
+
+// @media (prefers-color-scheme: light) {
+//   :root {
+//     background-color: white;
+//     color: black;
+//   }
+// }
