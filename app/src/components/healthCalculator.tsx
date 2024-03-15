@@ -70,13 +70,15 @@ const HealthCalculator = (props: React.PropsWithChildren<HealthCalculatorProps>)
       </div>
       
       <div className="card-actions mx-auto flex flex-col p-4">
-        <div className="card flex flex-row w-full bg-sky-900 my-2 p-4">
-          <img className="mr-2" src={AvatarIcons[selectedPlayer?.avatarIcon].icon} width={96} height={96}></img>
-          <div className="flex flex-col w-full">
-            <p className="text-2xl w-full mt-auto text-center text-white">{selectedPlayer?.username}</p>
-            <HealthBar health={selectedPlayer!.health}></HealthBar>
+        {selectedPlayer && 
+          <div className="card flex flex-row w-full bg-sky-900 my-2 p-4">
+            <img className="mr-2" src={AvatarIcons[selectedPlayer.avatarIcon].icon} width={96} height={96}></img>
+            <div className="flex flex-col w-full">
+              <p className="text-2xl w-full mt-auto text-center text-white">{selectedPlayer.username}</p>
+              <HealthBar health={selectedPlayer.health}></HealthBar>
+            </div>
           </div>
-        </div>
+        }
 
         <div className="flex w-full h-20 my-1 text-5xl bg-zinc-700 shadow-lg rounded-3xl items-center justify-end p-4">
           {healthSign + healthDelta}
