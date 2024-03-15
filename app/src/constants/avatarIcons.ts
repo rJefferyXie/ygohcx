@@ -14,7 +14,14 @@ import visasStarfrost from '../../public/images/visas-starfrost.png';
 import weatherPainter from '../../public/images/weather-painter.png';
 import yoko from '../../public/images/yoko.png';
 
-const AvatarIcons = {
+interface AvatarIconsMap {
+  [key:string] : {
+    name: string,
+    icon: string
+  }
+}
+
+const AvatarIcons: AvatarIconsMap = {
   "ancientFairyDragon": {
     name: "ancientFairyDragon",
     icon: ancientFairyDragon.src
