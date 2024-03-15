@@ -17,7 +17,7 @@ import AvatarIcons from '@/constants/avatarIcons';
 import Player from '@/interfaces/player';
 
 interface HealthCalculatorProps {
-  player: Player | undefined,
+  selectedPlayer: Player | undefined,
   roomData: any,
   exit: Function
 }
@@ -30,7 +30,7 @@ const HealthCalculator = (props: React.PropsWithChildren<HealthCalculatorProps>)
 
   const changeHealth = () => {
     const updatedPlayers = roomData.players.map((player: Player) => {
-      if (selectedPlayer.username === player.username) {
+      if (selectedPlayer?.username === player.username) {
         if (healthSign === '+') {
           return {...player, health: player.health + Number(healthDelta)};
         } else {
@@ -71,10 +71,10 @@ const HealthCalculator = (props: React.PropsWithChildren<HealthCalculatorProps>)
       
       <div className="card-actions mx-auto flex flex-col p-4">
         <div className="card flex flex-row w-full bg-sky-900 my-2 p-4">
-          <img className="mr-2" src={AvatarIcons[selectedPlayer.avatarIcon].icon} width={96} height={96}></img>
+          <img className="mr-2" src={AvatarIcons[selectedPlayer?.avatarIcon].icon} width={96} height={96}></img>
           <div className="flex flex-col w-full">
-            <p className="text-2xl w-full mt-auto text-center text-white">{selectedPlayer.username}</p>
-            <HealthBar health={selectedPlayer.health}></HealthBar>
+            <p className="text-2xl w-full mt-auto text-center text-white">{selectedPlayer?.username}</p>
+            <HealthBar health={selectedPlayer!.health}></HealthBar>
           </div>
         </div>
 
