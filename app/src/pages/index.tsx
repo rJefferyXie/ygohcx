@@ -21,6 +21,8 @@ const Home = () => {
   }, [router]);
 
   const createAccount = () => {
+    if (!username || !selectedAvatarIcon) return;
+
     const userData = {
       username: username,
       avatarIcon: selectedAvatarIcon,
