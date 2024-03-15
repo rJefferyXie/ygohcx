@@ -7,7 +7,6 @@ import { useRouter } from 'next/router';
 // Firebase
 import { db } from '@/firebase/config';
 import { doc, setDoc, deleteDoc, collection, onSnapshot, serverTimestamp } from "firebase/firestore"; 
-import { Timestamp } from '@firebase/firestore-types';
 
 interface Room {
   name: string,
@@ -52,7 +51,7 @@ const Rooms = () => {
     await deleteDoc(doc(db, 'rooms', roomName))
   }
 
-  const firebaseTimestampToJSDate = (timestamp: Timestamp) => {
+  const firebaseTimestampToJSDate = (timestamp: any) => {
     if (timestamp && timestamp.seconds) {
       return new Date(timestamp.seconds * 1000).toLocaleString();
     }
